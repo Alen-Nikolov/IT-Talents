@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+</head>
+<body>
+    <input type="text"><br/>
+    <input type="text"><br/>
+    <input type="text"><br/>
+    <input type="text"><br/>
+    <button onclick="showText()">Show the text!</button>
+</body>
+<script>
+    function showText(){
+        var allNodes=document.body.querySelectorAll("input");
+        for(var index=0;index<allNodes.length;index++){
+            var paragraph=document.createElement("p");
+            paragraph.innerText=allNodes[index].value;
+            document.body.appendChild(paragraph);
+        }
+    }
+</script>
+</html>
