@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Task1</title>
 </head>
 <body>
     
+  
 </body>
+<script>
+    function createElement(){
+        var parent=document.createElement(String.prototype.toUpperCase.call(arguments[0]));
+        document.body.appendChild(parent);
+        var simpleArray=Array.prototype.slice.call(arguments);
+        var parentElement=document.querySelector("div");
+        for(var index=1;index<simpleArray.length;index++){
+            parentElement.appendChild(document.createElement(String.prototype.toUpperCase.call(arguments[index])));
+        }
+    }
+    createElement("div","p","img","div");
+</script>
 </html>
