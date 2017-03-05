@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task4</title>
+</head>
+<body>
+    
+</body>
+<script>
+function Person(name,age, imgURL){
+    this.name=name;
+    this.age=age;
+    this.image=imgURL;
+    this.display=function(){
+        var parentDiv=document.createElement("div");
+        var image=document.createElement("img");
+        image.src=this.image;
+        var name=document.createElement("p");
+        name.innerHTML="NAME: "+this.name;
+        var age=document.createElement("p");
+        age.innerHTML="AGE: "+this.age;
+        document.body.appendChild(parentDiv);
+        parentDiv.style.display="inline-block";
+        image.style.cssFloat="left";
+        image.style.width="400px";
+        name.style.cssFloat="left";
+        age.style.cssFloat="left";
+        parentDiv.appendChild(image);
+        parentDiv.appendChild(name);
+        parentDiv.appendChild(document.createElement("br"));
+        parentDiv.appendChild(age);
+        document.body.appendChild(document.createElement("br"));
+    }
+}
+
+var pope=new Person("FRANCIS",25, "http://i2.cdn.cnn.com/cnnnext/dam/assets/131211074516-pope-waving-story-top.jpg");
+var donald=new Person("Donald",79,"http://www.thewrap.com/wp-content/uploads/2015/11/Donald-Trump.jpg");
+pope.display();
+donald.display();
+</script>
+</html>

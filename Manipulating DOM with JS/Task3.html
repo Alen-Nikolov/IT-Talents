@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+</head>
+<body>
+    
+  
+</body>
+<script>
+    function makeElements(){
+        var parent=document.createElement(String.prototype.toUpperCase.call(arguments[0]));
+        document.body.appendChild(parent);
+        var simpleArray=Array.prototype.slice.call(arguments);
+        for(var index=1;index<simpleArray.length;index++){ 
+            if(Array.isArray(simpleArray[index])){
+                makeElements.apply(null,simpleArray[index]);
+            } else {
+                parent.appendChild(document.createElement(String.prototype.toUpperCase.call(simpleArray[index])));
+            }
+        }
+    
+    }
+    makeElements("div","p","img",["div","p",["div","img"],"p"]);
+</script>
+</html>
