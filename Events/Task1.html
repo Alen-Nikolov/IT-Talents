@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task1</title>
+    <title>Document</title>
 </head>
 <body>
-    
+    <form action="">
+        <input id="textInput1" type="text">
+        <input id="textInput2" type="text">
+        <select name="select" id="select"></select>
+    </form>
+<script>
+    var firstInput=document.getElementById("textInput1");
+    var secondInput=document.getElementById("textInput2");
+    firstInput.addEventListener("keyup",bigLetters,false);
+    secondInput.addEventListener("keyup",bigLetters,false);
+
+    function bigLetters(e){
+        if(e.keyCode>=65 && e.keyCode<=90){
+            e.target.value=e.target.value.toUpperCase();
+        }
+}
+</script>
 </body>
 </html>
