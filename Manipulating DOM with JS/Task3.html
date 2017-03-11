@@ -10,18 +10,18 @@
 </body>
 <script>
     function makeElements(){
-        var parent=document.createElement(String.prototype.toUpperCase.call(arguments[0]));
+        var parent=document.createElement(arguments[0]);
         document.body.appendChild(parent);
         var simpleArray=Array.prototype.slice.call(arguments);
         for(var index=1;index<simpleArray.length;index++){ 
             if(Array.isArray(simpleArray[index])){
-                makeElements.apply(null,simpleArray[index]);
+                parent.appendChild(makeElements.apply(null,simpleArray[index]));
             } else {
-                parent.appendChild(document.createElement(String.prototype.toUpperCase.call(simpleArray[index])));
+                parent.appendChild(document.createElement(simpleArray[index]));
             }
         }
-    
+        return parent;
     }
-    makeElements("div","p","img",["div","p",["div","img"],"p"]);
+    makeElements("div","p","img",["div","p",["div","img","div"],"p"],"section");
 </script>
 </html>
