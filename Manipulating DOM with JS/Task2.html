@@ -14,11 +14,11 @@
 <script>
     function showText(){
         var allNodes=document.body.querySelectorAll("input");
-        for(var index=0;index<allNodes.length;index++){
+        Array.prototype.forEach.call(allNodes, function(elem){
             var paragraph=document.createElement("p");
-            paragraph.innerText=allNodes[index].value;
+            paragraph.innerText=elem.value;
             document.body.appendChild(paragraph);
-        }
+        });
     }
 </script>
 </html>
