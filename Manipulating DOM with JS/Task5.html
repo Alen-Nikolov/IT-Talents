@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Task5</title>
+    <style>
+        #cartDiv{
+            border: 2px solid black;
+            height: 600px;
+            width:600px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="cartDiv">
+    </div>
 </body>
 <script>
 function ShoppingCart(){
-    var cartDiv=document.createElement("div");
-    cartDiv.style.border="2px solid black";
-    cartDiv.style.height="600px";
-    cartDiv.style.width="600px";
-    cartDiv.innerHTML="Няма!";
-    document.body.appendChild(cartDiv);
+    var cartDiv=document.getElementById("cartDiv");
     this.products=[];
+    this.checkIfInArray=function(product){
+        return this.products.includes(product);
+    }
+   
     this.addProduct=function(p){
-        this.products.push(p);
-        if(this.products.length===1){
-            cartDiv.innerHTML="";
-        }
-        var product=document.createElement("div");
-        product.style.border="1px solid black";
-        product.innerHTML+="Name: <b>"+p.name+"</b> &nbsp;&nbsp;Quantity: <b>"+p.quantity+"</b>";
-        var img=document.createElement("img");
-        img.src=p.image;
-        img.style.height="100px";
-        product.appendChild(img);
-        cartDiv.appendChild(product);
+            if(!this.checkIfInArray(p)){
+                this.products.push(p);
+                var product=document.createElement("div");
+                product.style.border="1px solid black";
+                product.style.backgroundColor="green";
+                product.innerHTML+="Name: <b>"+p.name+"</b> &nbsp;&nbsp;Quantity: <b>"+p.quantity+"</b>";
+                var img=document.createElement("img");
+                img.src=p.image;
+                img.style.height="100px";
+                img.style.marginLeft="100px";
+                product.appendChild(img);
+                cartDiv.appendChild(product);
+            } else {
+                this.products[this.products.indexOf(p)].quantity+=p.quantity;
+
+            }
     },
-    this.removeProduct=function(index){
-        cartDiv.removeChild(cartDiv.childNodes[index]);
-        this.products.splice(index);
+
+    this.removeProduct=function(indexOfProduct){
+        cartDiv.removeChild(cartDiv.childNodes[indexOfProduct+1]);
+        this.products.splice(indexOfProduct+1);
     }
 }
 var p={
@@ -55,7 +67,9 @@ var cart=new ShoppingCart();
 cart.addProduct(p);
 cart.addProduct(p1);
 cart.addProduct(p2);
-cart.addProduct(p);
-cart.removeProduct(3);
+cart.addProduct(p2);
+cart.addProduct(p2);
+cart.removeProduct(1);
+
 </script>  
 </html>
