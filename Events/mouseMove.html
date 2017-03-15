@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p id="here"></p>
+    <script>
+        var num=0;
+        var max=10;
+        var intervalId=null;
+        function increment(){
+            num++;
+            console.log(num);
+            if(num<max){
+                setTimeout(increment,500);
+            }
+        }
+        setTimeout(increment, 500);
+      
+    </script>
+    
+</body>
+</html>
