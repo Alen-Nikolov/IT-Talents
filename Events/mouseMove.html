@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
-    <p id="here"></p>
+    <div id='div'>
+        <button id="btn">Click me</button>
+    </div>
     <script>
-        var num=0;
-        var max=10;
-        var intervalId=null;
-        function increment(){
-            num++;
-            console.log(num);
-            if(num<max){
-                setTimeout(increment,500);
-            }
-        }
-        setTimeout(increment, 500);
-      
+        var btn = document.getElementById('btn');
+        var div = document.getElementById('div');
+        btn.addEventListener('click', function (event) {
+            alert('clicked on button');
+            event.stopImmediatePropagation()
+            console.log(event.target);
+            console.log(event.currentTarget);
+        }, false);
+        div.addEventListener('click', function (event) {
+            alert('clicked on div');
+
+            console.log(event.target);
+            console.log(event.currentTarget);
+        }, false);
     </script>
-    
+
 </body>
+
 </html>
