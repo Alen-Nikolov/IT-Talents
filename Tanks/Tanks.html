@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tanks</title>
+    <style>
+        #playingField{
+            border: 2px solid firebrick;
+            width: 100%;
+            height: 600px;
+        }
+        #tank1 {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+        }
+        
+        #tank2 {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 500px;
+        }
+        
+        #first-wall {
+            background-color: firebrick;
+            width: 70%;
+            height: 80px;
+            position: absolute;
+            top: 150px;
+        }
+        
+        #second-wall {
+            background-color: firebrick;
+            width: 70%;
+            height: 80px;
+            position: absolute;
+            top: 400px;
+            left: 400px;
+        }
+        .rotate90{
+            transform:rotate(90deg);
+        }
+         .rotate180{
+            transform:rotate(180deg);
+        }
+        .rotate270{
+            transform:rotate(270deg);
+        }
+        .rotate360{
+            transform:rotate(0deg);
+        }
+    </style>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+    <div id="playingField">
+        <img id="tank1" src="assets/tank1.png" />
+        <img id="tank2" src="assets/tank2.png" />
+        <div id='first-wall'>
+        </div>
+        <div id='second-wall'>
+        </div>
+    </div>
+    <script src="tanks.js">
+
+    </script>
+</body>
+
+</html>
